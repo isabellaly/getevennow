@@ -14,7 +14,7 @@ namespace :loaddata do
   end
   
   task :zip => :environment do
-    FasterCSV.foreach('zipcode_database.csv', :quote_char => '"', :col_sep =>',', :row_sep =>:auto) { |row| Zip.create!(:zipcode => row[0], :city => row[1], :state => row[2], :locationtext => row[3] ) }
+    CSV.foreach('zipcode_database.csv', :quote_char => '"', :col_sep =>',', :row_sep =>:auto) { |row| Zip.create!(:zipcode => row[0], :city => row[1], :state => row[2], :locationtext => row[3] ) }
   end
 end
 
