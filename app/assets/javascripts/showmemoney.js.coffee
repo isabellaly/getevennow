@@ -8,38 +8,36 @@ questionList = ["occupation", "gender", "location", "paycheck"]
 $ ->
 	$('#OccupationList').change (e) -> alert e.currentTarget
 		
-	$('#userform > div').hide()
+	$('#occupation, #location, #gender, #paycheck').hide('fast')
 	$('#occup_link').click ->
 		initCurrentMenuItem('#occup_link')		
-		$('#occupation').show()
-	$('#occup_link').hover ->
+		$('#occupation').show('fast')
+	$('#occup_link').mouseenter ->
 		initCurrentMenuItem('#occup_link')
 		$('#occupation').show()
+	
 	$('#loc_link').click ->
 		initCurrentMenuItem('#loc_link')
 		$('#location').show()
 	
-	$('#loc_link').hover ->
+	$('#loc_link').mouseenter ->
 		initCurrentMenuItem('#loc_link')
-		$('#location').show()
+		$('#location').show('fast')
 	$('#gend_link').click ->
 		initCurrentMenuItem('#gend_link')
-		$('#gender').show()
+		$('#gender').show('fast')
 
-	$('#gend_link').hover ->
+	$('#gend_link').mouseenter ->
 		initCurrentMenuItem('#gend_link')
-		$('#gender').show()
+		$('#gender').show('fast')
 
-	$('#gend_link').hover ->
-		initCurrentMenuItem('#gend_link')
-		$('#gender').show()
 
 		
 	$('#paychk_link').click ->
 		initCurrentMenuItem('#paychk_link')
 		$('#paycheck').show()
 
-	$('#paychk_link').hover ->
+	$('#paychk_link').mouseenter ->
 		initCurrentMenuItem('#paychk_link')
 		$('#paycheck').show()
 	$('#nextlink1').click ->
@@ -48,6 +46,8 @@ $ ->
 		$('#gend_link').trigger('click')
 	$('#nextlink3').click ->
 		$('#paychk_link').trigger('click')
+	$('#occup_link,#loc_link,#gend_link,#paychk_link').mouseleave ->
+		return false
 		
 	$('#salarycomjob_jobtitle').autocomplete
 		source: '/SalaryComJobs'
@@ -55,10 +55,10 @@ $ ->
 			this.value = ui.item.label
 			$('#jobcode').val(ui.item.value)
 			return false
-	$('#zipcodefield').autocomplete
+	$('#zip_code').autocomplete
 		source: '/Zips'
 		select: (event, ui) ->
-			this.value = ui.item.value
+			$('#zip_code').val(ui.item.value)
 	
 		
 	$('#showmemoney').click ->
@@ -84,43 +84,23 @@ $ ->
 	         
 	         yAxis:
 	            title: 
-	               text: 'Average Annual Earnings' 
+	               text: 'Median Annual Salary' 
 	            labels:
 	               formatter: ->
-	                     return "$" + this.value 
-	         
+	                     return "$" + Highcharts.numberFormat(this.value, 0) 
+	         plotOptions:
+	            bar:
+	               dataLabels:
+	                   enabled: true
+	                   formatter: ->
+	                     return "$" + Highcharts.numberFormat(this.y, 2)
+	         tooltip:
+	            formatter: ->
+	               return "$" + Highcharts.numberFormat(this.y, 2)
+	
 	         series:[{name: 'Men', data:[$('#mydatadiv').data('chartdata').Men] },
 	             {name:'Women', data:[$('#mydatadiv').data('chartdata').Women]}]
 		    }
-
-		
-			testAreaChart =  new Highcharts.Chart {
-			         chart: 
-			            renderTo: 'chartscontainer2',
-			            type: 'areaspline'
-
-			         title: 
-			            text: 'Wage Gap Trend'
-
-			         subtitle:
-			            text: 'Source Salary.com, Bureau of Labor Statistics'
-
-			         xAxis:
-			            categories: [2012, 2022, 2032, 2042, 2052]
-
-			         yAxis:
-			            title: 
-			               text: 'Average Annual Earnings' 
-			            labels:
-			               formatter: ->
-			                     return "$" + this.value   
-			         plotOptions:
-			            areaspline:
-			               fillOpacity: 0.5
-			         series:[{name: 'Men', data:[100,150, 190, 200, 250] },
-			             {name:'Women', data:[80, 120, 140, 155, 175]}]
-
-				    }
 
 	
 	testAreaChart =  new Highcharts.Chart {
@@ -136,16 +116,22 @@ $ ->
 
 	         xAxis:
 	            categories: [0,5, 10, 15, 20, 25, 30]
+	            title:
+	               text: 'Years from now'
 
 	         yAxis:
 	            title: 
-	               text: 'Average Annual Earnings' 
+	               text: 'Median Annual Salary' 
 	            labels:
 	               formatter: ->
-	                     return "$" + this.value   
+	                     return "$" +  Highcharts.numberFormat(this.value, 0)    
 	         plotOptions:
 	            areaspline:
 	               fillOpacity: 0.5
+	         tooltip:
+	            formatter: ->
+	               return "$" + Highcharts.numberFormat(this.y, 2)
+	
 	         series:[{name: 'Men', data:$('#mydatadiv').data('wagegaptrend').Men },
 	             {name:'Women', data:$('#mydatadiv').data('wagegaptrend').Women}]
 
@@ -162,7 +148,7 @@ $ ->
 	
 
 initCurrentMenuItem= (currentLink) -> 
-	$('#userform > div').hide()
+	$('#occupation, #location, #gender, #paycheck').hide('fast')
 	$('#verticalnavbar > ul > li').removeClass('currentMenuItem')
 	$(currentLink).parent().addClass('currentMenuItem')
 

@@ -30,8 +30,8 @@ class PagesController < ApplicationController
         g = bls_wf.to_f / bls_wm.to_f
 
         paychktype = params[:paychk_radio].to_f
-        # From Salary.com we have the median wage
-        sc_w = getsalarywebservicedata(salarycomjob.first.code)/52.177
+        # From Salary.com we have the median weekly wage
+        sc_w = getsalarywebservicedata(salarycomjob.first.code, params[:zip][:code])/52.177
 
         # we want to estimate the wage for females and wage for male
 
@@ -56,7 +56,7 @@ class PagesController < ApplicationController
 
   private
 
-  def getsalarywebservicedata(jobcode)
+  def getsalarywebservicedata(jobcode, zip)
   	#UTC time
     t = Time.now.utc
     mon = t.month
