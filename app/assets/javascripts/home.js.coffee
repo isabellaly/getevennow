@@ -1,0 +1,2 @@
+$ ->
+	$('#occupationtable').dataTable()
