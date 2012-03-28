@@ -324,3 +324,26 @@ img.centeralign{
 	 border-radius:         10px;
 	
 }
+
+#tips {
+	
+	list-style: none;
+	border: 1px solid gray;
+	padding: 0;
+	-moz-border-radius:    10px;
+	 -webkit-border-radius: 10px;
+	 border-radius:         10px;
+	
+}
+
+#tips li {
+	
+	padding: 1em;
+	
+}
+
+/*#tips li:nth-child(odd) {
+	
+	background-color: #BDEDFF;
+	
+}*/
