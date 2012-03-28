@@ -27,32 +27,71 @@
 #mainmenu{
 	background-color: #5C604D;
 }
-#mainmenu ul {
+#navbar {
+  position: relative;
   margin: 0;
-  padding: 0.5em 0;
+  padding: 0.4em 0;
 }
 
-#mainmenu ul li {
+#navbar li {
   list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
+  display: inline;
+  padding: 0;
 }
 
-#mainmenu ul li a {
-  padding: 0.3em 0.3em;
+#navbar li a {
+  padding: 0.4em 0.7em;
   font-weight: bold;
   font: 125% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   text-decoration: none;
   color:white !important;
  -webkit-text:white;
+  margin: 0;
+  border: 0;
 
 }
 
+#navbar ul{
+	display:none;
+	border: 0;
+	margin: 0;
+	float: left;
+}
 
-#mainmenu ul li a:hover {
+#navbar ul li{
+	
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#navbar ul li a{
+	padding: 0 1em 0 0;
+	font: 110% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	border: 0;
+	margin: 0;
+	
+}
+
+#navbar  li a:hover {
   background-color: #F20056;
   
 }
+
+#navbar li:hover ul {
+	position: absolute;
+	display: inline;
+	left: 80px;
+	top: 28px;
+	background-color: #F20056;
+	
+	 }
+	#navbar  ul li a:hover {
+	  background-color: black;
+
+	}
+	#navbar li:hover li, #navbar li.hover li {
+		float: left; }
 
 /*#mainmenu ul li a:visited {
   background-color: #F20056;
@@ -151,11 +190,15 @@ body{
 	background-color: #B22222;
 	color:white !important;
 	text-decoration:none;
+	font-size: 120%;
 	border:1px solid gray;
 	padding:10px 10px 10px 10px;
 	-moz-border-radius:    7px 7px 0 0;
 	 -webkit-border-radius: 7px 7px 0 0;
 	 border-radius:         7px 7px 0 0;
+}
+#sidebaritemheader.span{
+	
 }
 
 #sidebaritemcontent{
@@ -249,4 +292,16 @@ ul.ui-autocomplete li {
 .searchbox{
 	height:2em;
 	size:50;
+}
+
+.centeralign{
+	text-align: center;
+	
+}
+
+img.centeralign{
+	display: block;
+	margin-left: auto;   
+	margin-right: auto;
+	
 }

@@ -5,10 +5,16 @@
 
 </div>
 <div id="mainmenu" class="span-24 last">
-	<ul>
+	<ul id="navbar">
 		<li><%= link_to "Home", root_path %></li>
 		<li><%= link_to "Show me the money", showmemoney_path %></li>
-		<li><%= link_to "Ask for it", root_path %></li>
+		<li><%= link_to "Ask for it", root_path %>
+			<ul class="submainmenu">
+				<li><%= link_to "Negotiation Tips", root_path %></li>
+				<li><%= link_to "Practice Videos", root_path %></li>
+				<li><%= link_to "Job Negotiation Cheat Sheet", root_path %></li>
+			</ul>
+		</li>
 		<li><%= link_to "Find out more", root_path %></li>
       
 	</ul>
