@@ -59,7 +59,16 @@ $ ->
 		source: '/Zips'
 		select: (event, ui) ->
 			$('#zip_code').val(ui.item.value)
-	
+	$( "#dialog:ui-dialog" ).dialog( "destroy" );
+	$('#methodology_link').click ->
+		$('#methodology_dialog').dialog {
+			modal: true
+			height: 300
+			width: 400
+			buttons:
+				Ok: ->
+					$(this).dialog("close")
+		}
 		
 	$('#showmemoney').click ->
 		$('#userform > div').hide()

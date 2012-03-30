@@ -197,8 +197,9 @@ body{
 	font-size: 120%;
 	padding:10px 10px 10px 10px;
 	-moz-border-radius:    7px 7px 0 0;
-	 -webkit-border-radius: 7px 7px 0 0;
-	 border-radius:         7px 7px 0 0;
+	-webkit-border-radius: 7px 7px 0 0;
+	border-radius:         7px 7px 0 0;
+	border-left: 1px solid gray;
 
 	
 }
@@ -323,4 +324,8 @@ img.centeralign{
 	 -webkit-border-radius: 10px;
 	 border-radius:         10px;
 	
+}
+
+#methodology_dialog{
+	float: left;
 }

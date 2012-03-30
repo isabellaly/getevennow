@@ -83,7 +83,15 @@
 <%= debug params %>
 <%= debug @highchartdata %>
 
-</div>
+<a href="#" id= "methodology_link">Methodology</a>
 
+
+</div>
+<div id="methodology_dialog" style="display: none" title="How are these charts generated?">
+<p>The graphs were generated using data from the Bureau of Labor Statistics (http://www.bls.gov/cps/) and from Salary.com.  We used the BLS data to estimate the gender wage gap, G = (Wf/Wm) for each occupation, where Wf is the median wage for women and Wm is median wage for men in those data.  These data also gave us the percent of women in each occupation, pf = Nf/(Nf+nM), where Nf is the number of women in each occupation and Nm is the number of men.  We used the Salary.com data to estimate the median salary (W) for each occupation.  Applying G and pf to the Salary.com salary median for each occupation, we can back out of median salary by gender, SF and SM displayed in the graphs:
+SM = W/(pf*G + 1 – pf)
+SF = GW/(pf*G + 1 – pf)
+</p>
+</div>
 
 
