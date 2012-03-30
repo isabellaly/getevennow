@@ -326,6 +326,43 @@ img.centeralign{
 	
 }
 
-#methodology_dialog{
-	float: left;
+
+#tips {
+	
+	list-style: none;
+	border: 1px solid gray;
+	padding: 0;
+	-moz-border-radius:    10px;
+	 -webkit-border-radius: 10px;
+	 border-radius:         10px;
+	
 }
+
+#tips li {
+	
+	padding: 1em;
+	
+}
+
+#videolinks a{
+	padding: 0.5em 1.5em 0.5em 1.5em;
+	background-color: #00BFFF;
+	text-decoration: none;
+	color:white !important;
+	font: 105%;
+	margin: 0.3em;
+	
+}
+
+#videolinks a:hover {
+	
+	background-color: #F20056;
+	
+}
+
+/*#tips li:nth-child(odd) {
+	
+	background-color: #BDEDFF;
+	
+}*/
+
