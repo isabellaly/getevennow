@@ -1,13 +1,5 @@
 <div style="height: 30px"></div>
-<div id="verticalnavbar" class="span-3">
-<ul>
-	<li><a id="occup_link" href="#">Occupation</a> </li>
-	<li><a id="loc_link" href="#">Location</a> </li>
-	<li><a id="gend_link" href="#">Gender</a> </li>
-	<li><a id="paychk_link" href="#">Paycheck</a> </li>
-</ul>
-	
-</div>
+
 
 <div id="userform" class="span-12">
 	
@@ -22,9 +14,7 @@
   		<%= label_tag(:q, "Start typing your job title") %> <br/>
   		<%= text_field :salarycomjob, :jobtitle, :size => 50,  :class => 'searchbox'  %>
   		<%= hidden_field_tag :jobcode %> <br/>	
-		
-		<a id="nextlink1" href="#" class="button orange">Next</a>
-		
+				
 	</div>
 	
 	
@@ -33,27 +23,14 @@
 		
 		<%= text_field :zip, :code, :size =>50, :class => 'searchbox' %>
 		<br/>
-		<a id="nextlink2" href="#" class="button orange">Next</a>
+		
 	</div>
-	
-	
-	<div id="gender">
-		<h5>Select gender</h5> 
-		<input type="radio" name="gender_radio" value="Male"> Male<br/>
-		<input type="radio" name="gender_radio" value="Female">Female<br/>
-		<a id="nextlink3" href="#" class="button orange">Next</a>
 
-	</div>
-	
-	<div id="paycheck">
-		<h5>Select Paycheck type</h5>
-		<input type="radio" name="paychk_radio" value="52.177"> Yearly Salary<br/>
-		<input type="radio" name="paychk_radio" value="4.348"> Monthly Salary <br/>
-		<input type="radio" name="paychk_radio" value="0.025"> Hourly Wages <br/>
-	    <%= submit_tag("Show me the money", :id => "showmemoney", :class => "button orange") %>
+	     <%= submit_tag("Show me the money", :id => "showmemoney", :class => "button orange") %>
+
 	<% end %>
-
-	</div>
+    
+	
 	
 	<%= content_tag "div", id:"mydatadiv", data: {chartdata: @highchartdata, wagegaptrend: @wagegaptrend }   do %>
 	<% end %>
@@ -80,11 +57,10 @@
 		
 	</div>
 <div class="span-24 last">
-<%= debug params %>
-<%= debug @highchartdata %>
+
 
 <a href="#" id= "methodology_link">Methodology</a>
-
+<%= debug params %>
 
 </div>
 <div id="methodology_dialog" style="display: none" title="How are these charts generated?">

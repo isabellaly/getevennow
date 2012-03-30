@@ -327,7 +327,7 @@ img.centeralign{
 }
 
 
-#tips {
+#tips, #books {
 	
 	list-style: none;
 	border: 1px solid gray;
@@ -338,7 +338,7 @@ img.centeralign{
 	
 }
 
-#tips li {
+#tips li, #books li {
 	
 	padding: 1em;
 	
@@ -358,6 +358,10 @@ img.centeralign{
 	
 	background-color: #F20056;
 	
+}
+
+.ui-dialog-titlebar-close {
+	display: none;
 }
 
 /*#tips li:nth-child(odd) {

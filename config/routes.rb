@@ -65,6 +65,7 @@ Equalpay::Application.routes.draw do
   match '/charts' => 'charts#getwagedata'
   match '/tips' => 'pages#negotiationtips'
   match '/videos' => 'pages#negotiationvideos'
+  match '/more' => 'pages#findoutmore'
 
   
   

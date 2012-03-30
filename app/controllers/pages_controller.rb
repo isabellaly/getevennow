@@ -19,34 +19,33 @@ class PagesController < ApplicationController
 	  		blsjob = Blsjob.where(:bls_job_code => salarycomjob.first.bls_job_code).limit(1)
 
 		  	bls_nf   = blsjob.first.workers_women     # number of females
-        bls_nm = blsjob.first.workers_men     # number of male workers
-        bls_wf  = blsjob.first.earnings_women   # wage of women (median salary)
-        bls_wm = blsjob.first.earnings_men # wage of men (median salary)
+            bls_nm = blsjob.first.workers_men     # number of male workers
+            bls_wf  = blsjob.first.earnings_women   # wage of women (median salary)
+            bls_wm = blsjob.first.earnings_men # wage of men (median salary)
 
-        # compute percent female
-        pf = bls_nf.to_f / (bls_nm+bls_nf).to_f
+            # compute percent female
+            pf = bls_nf.to_f / (bls_nm+bls_nf).to_f
 
-        # compute the gap
-        g = bls_wf.to_f / bls_wm.to_f
+            # compute the gap
+            g = bls_wf.to_f / bls_wm.to_f
 
-        paychktype = params[:paychk_radio].to_f
-        # From Salary.com we have the median weekly wage
-        sc_w = getsalarywebservicedata(salarycomjob.first.code, params[:zip][:code])/52.177
+            
+            # From Salary.com we have the median weekly wage
+            sc_w = getsalarywebservicedata(salarycomjob.first.code, params[:zip][:code])
 
-        # we want to estimate the wage for females and wage for male
+            # we want to estimate the wage for females and wage for male
 
-        wm = (sc_w.to_f / (pf * g + 1.0 - pf).to_f)
-        wf   = (g.to_f * wm.to_f)
+            wm = (sc_w.to_f / (pf * g + 1.0 - pf).to_f).round(2)
+            wf   = (g.to_f * wm.to_f).round(2)
 
-        wm = (wm * paychktype).round(2)
-        wf = (wf * paychktype).round(2)
+            
 
-        years = [0,5,10,15,20,25,30]
-        inflation = 0.03
+            years = [0,5,10,15,20,25,30]
+            inflation = 0.03
 
 
-        @highchartdata = {:Men => wm, :Women => wf }
-        @wagegaptrend = {:Men => years.map {|y| (wm*(1 + inflation)**y).round(2)}, :Women => years.map {|y| ( wf*(1 + inflation)**y).round(2)} }
+            @highchartdata = {:Men => wm, :Women => wf }
+            @wagegaptrend = {:Men => years.map {|y| (wm*(1 + inflation)**y).round(2)}, :Women => years.map {|y| ( wf*(1 + inflation)**y).round(2)} }
 	  	end
 	  	
 
@@ -70,7 +69,7 @@ class PagesController < ApplicationController
 
     min = t.min
     sec = t.sec
-    zip = '15222'
+    
     # Build a time stamp that will be part of a URL
     utctimestamp = mon.to_s+'%2F'+dd.to_s+'%2F'+yyyy.to_s+'+'+hh.to_s+'%3A'+min.to_s+'%3A'+sec.to_s+'+'+suffix
 
@@ -88,7 +87,7 @@ class PagesController < ApplicationController
     # create string to be hashed
     stringToBeHashed = securityKey+'-'+partnerCode+'-'+utctimehashstamp
     stringToBeHashed.strip!
-
+   
 
     #compute hash using SHA1
     hashCode = Digest::SHA1.new << stringToBeHashed
