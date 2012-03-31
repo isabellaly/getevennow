@@ -374,7 +374,12 @@ img.centeralign{
 }
 
 #footer a {
- padding-left: 2em;	
+ padding-right: 2em;
+ font: 60%;	
+}
+
+#footer p{
+font: 60%;	
 }
 
 .ui-dialog { margin:0 auto; }
