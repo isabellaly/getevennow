@@ -118,7 +118,7 @@ $ ->
 	            type: 'areaspline'
 
 	         title: 
-	            text: 'Effect of Initial Gap on Wage Over 30 Years'
+	            text: 'Effect of Initial Gap on Annual Wage Over 30 Years'
 
 	         subtitle:
 	            text: 'Source Salary.com, Bureau of Labor Statistics'
