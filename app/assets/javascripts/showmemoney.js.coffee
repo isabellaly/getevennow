@@ -83,7 +83,7 @@ $ ->
 	            type: 'bar'
 
 	         title: 
-	            text: 'Wage Gap'
+	            text: 'Wage Gap Estimate'
 
 	         subtitle:
 	            text: 'Source Salary.com, Bureau of Labor Statistics'
@@ -118,7 +118,7 @@ $ ->
 	            type: 'areaspline'
 
 	         title: 
-	            text: 'Wage Gap Trend'
+	            text: 'Effect of Initial Wage Gap Over 30 Years'
 
 	         subtitle:
 	            text: 'Source Salary.com, Bureau of Labor Statistics'
