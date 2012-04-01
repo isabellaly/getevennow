@@ -10,19 +10,31 @@ class PagesController < ApplicationController
   
   def showmemoney
 
-	  if not params[:jobcode].nil?
+	if not params[:jobcode].nil?
 
-	  	salarycomjob = SalaryComJob.where(:code => params[:jobcode]).limit(1)
+	  salarycomjob = SalaryComJob.find_by_code(params[:jobcode])
 
-	  	if salarycomjob.count > 0
+	    #if salarycomjob.count > 0
 
-	  		blsjob = Blsjob.where(:bls_job_code => salarycomjob.first.bls_job_code).limit(1)
+	      blsjob = Blsjob.find_by_bls_job_code(salarycomjob.bls_job_code)
+	      tempblsjobcode = blsjob.bls_job_code
+	      counter = 3
+		#10.times { puts blsjob.earnings_women, blsjob.earnings_men }
+		#if (blsjob.earnings_women == (-1) or blsjob.earnings_men == (-1)) ; 10.times {puts "yes"} ; end
+	      while (blsjob.earnings_women == 0 or blsjob.earnings_women == -1 or blsjob.earnings_men == 0 or blsjob.earnings_men == -1)
+	        pieces = tempblsjobcode.scan(/(\w+)/)
+		pieces[counter][0] = 0
+		counter = counter - 1
+		tempblsjobcode = pieces.join(".")
+		blsjob = Blsjob.find_by_bls_job_code(tempblsjobcode)
+	      end
 
-		  	bls_nf   = blsjob.first.workers_women     # number of females
-        bls_nm = blsjob.first.workers_men     # number of male workers
-        bls_wf  = blsjob.first.earnings_women   # wage of women (median salary)
-        bls_wm = blsjob.first.earnings_men # wage of men (median salary)
-
+	bls_nf   = blsjob.workers_women     # number of females
+        bls_nm = blsjob.workers_men     # number of male workers
+        bls_wf  = blsjob.earnings_women   # wage of women (median salary)
+        bls_wm = blsjob.earnings_men # wage of men (median salary)
+	
+	#10.times { puts blsjob.occupation1, blsjob.occupation2, blsjob.occupation3, blsjob.occupation4 }
         # compute percent female
         pf = bls_nf.to_f / (bls_nm+bls_nf).to_f
 
@@ -31,7 +43,7 @@ class PagesController < ApplicationController
 
         paychktype = params[:paychk_radio].to_f
         # From Salary.com we have the median weekly wage
-        sc_w = getsalarywebservicedata(salarycomjob.first.code, params[:zip][:code])/52.177
+        sc_w = getsalarywebservicedata(salarycomjob.code, params[:zip][:code])/52.177
 
         # we want to estimate the wage for females and wage for male
 
@@ -47,7 +59,7 @@ class PagesController < ApplicationController
 
         @highchartdata = {:Men => wm, :Women => wf }
         @wagegaptrend = {:Men => years.map {|y| (wm*(1 + inflation)**y).round(2)}, :Women => years.map {|y| ( wf*(1 + inflation)**y).round(2)} }
-	  	end
+	  #	end
 
 
 	  end
