@@ -168,6 +168,7 @@ initCurrentMenuItem= (currentLink) ->
 	$('#verticalnavbar > ul > li').removeClass('currentMenuItem')
 	$(currentLink).parent().addClass('currentMenuItem')
 
+
 isFormValid = () ->
 	valid = true
 	clearErrorMessage()
@@ -194,7 +195,6 @@ clearErrorMessage = () ->
 	@validationmessages = []
 	$('#errormsgpanel').html('')
 	$('#errormsgpanel').hide('fast')
-
 
 
 
