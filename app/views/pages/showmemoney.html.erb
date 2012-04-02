@@ -8,7 +8,7 @@
 </ul>
 
 </div>
-
+<div id="errormsgpanel" class ="span-12 last"></div>
 <div id="userform" class="span-12">
 
 
@@ -16,10 +16,10 @@
 
 
 
-	<%= form_tag("/showmemoney", :method => "get") do %>
+	<%= form_tag("/showmemoney", :method => "get", :id => "showmemoneyform") do %>
 
 	<div id="occupation">
-  		<%= label_tag(:q, "Start typing your job title") %> <br/>
+  		<%= label_tag(:q, "Start typing your job title") %> <br/> <small> * required</small>
   		<%= text_field :salarycomjob, :jobtitle, :size => 50,  :class => 'searchbox'  %>
   		<%= hidden_field_tag :jobcode %> <br/>	
 
@@ -30,6 +30,7 @@
 
 	<div id="location">
 		<label for="zipcode">Start typing city or zipcode</label> <br/>
+		<small>If you don't enter a zipcode, national average information will be presented </small>
 
 		<%= text_field :zip, :code, :size =>50, :class => 'searchbox' %>
 		<br/>
@@ -40,15 +41,15 @@
 	<div id="gender">
 		<h5>Select gender</h5> 
 		<input type="radio" name="gender_radio" value="Male"> Male<br/>
-		<input type="radio" name="gender_radio" value="Female">Female<br/>
+		<input type="radio" name="gender_radio" value="Female" checked="checked">Female<br/>
 		<a id="nextlink3" href="#" class="button orange">Next</a>
 
 	</div>
 
 	<div id="paycheck">
 		<h5>Select Paycheck type</h5>
-		<input type="radio" name="paychk_radio" value="52.177"> Yearly Salary<br/>
-		<input type="radio" name="paychk_radio" value="4.348"> Monthly Salary <br/>
+		<input type="radio" name="paychk_radio" value="52.177" checked="checked"> Yearly Salary<br/>
+		<input type="radio" name="paychk_radio" value="4.348" > Monthly Salary <br/>
 		<input type="radio" name="paychk_radio" value="0.025"> Hourly Wages <br/>
 	    <%= submit_tag("Show me the money", :id => "showmemoney", :class => "button orange") %>
 	<% end %>

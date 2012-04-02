@@ -75,13 +75,13 @@ def self.getData(jobCode, zip)
   # get the XML data as a string
   xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
-  doc = REXML::Document.new xml_data
+  #doc = REXML::Document.new xml_data
 
-  salary = doc.elements["SWZ"].elements["BenefitBaseSalary50th_M"].cdatas()[0].value
-  salary.gsub("$", "").gsub(",","").to_f
+  #salary = doc.elements["SWZ"].elements["BenefitBaseSalary50th_M"].cdatas()[0].value
+  #salary.gsub("$", "").gsub(",","").to_f
 
 end
 end
 
-sal = SalaryGetter.getData('LE11000082', '15222')
+sal = SalaryGetter.getData('LG12000019', '15222')
 puts sal

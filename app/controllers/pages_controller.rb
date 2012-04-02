@@ -57,6 +57,10 @@ class PagesController < ApplicationController
   private
 
   def getsalarywebservicedata(jobcode, zip)
+
+    begin
+        
+    
   	#UTC time
     t = Time.now.utc
     mon = t.month
@@ -110,6 +114,12 @@ class PagesController < ApplicationController
 
     salary = doc.elements["SWZ"].elements["BenefitBaseSalary50th_M"].cdatas()[0].value
     salary.gsub("$", "").gsub(",","").to_f
+
+    rescue Exception => e
+      logger.fatal e.message
+      logger.fatal e.backtrace.inspect
+      salary = 0  
+    end
 
   end
   

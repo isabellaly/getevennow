@@ -384,6 +384,18 @@ font: 60%;
 
 .ui-dialog { margin:0 auto; }
 
+#errormsgpanel{
+	display: none;
+	background-color: rgb(255, 0,0);
+	
+	color: white !important;
+	padding: 0 1.5em;
+	font-weight: bold;
+	-moz-border-radius:    3px;
+	 -webkit-border-radius: 3px;
+	 border-radius:         3px;
+}
+
 /*#tips li:nth-child(odd) {
 	
 	background-color: #BDEDFF;

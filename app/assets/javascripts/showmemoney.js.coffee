@@ -1,51 +1,51 @@
 currentQuestionIndex = 0
-questionList = ["occupation", "gender", "location", "paycheck"]
 @testBarChart
 @testAreaChart
- 
+@validationmessages = []
+
 
 
 $ ->
 	
 
 	$('#occupation, #location, #gender, #paycheck').hide('fast')
+	clearErrorMessage()
+	
+
+	initCurrentMenuItem('#occup_link')		
+	$('#occupation').show('fast')
+
 	$('#occup_link').click ->
 		initCurrentMenuItem('#occup_link')		
 		$('#occupation').show('fast')
-	$('#occup_link').mouseenter ->
-		initCurrentMenuItem('#occup_link')
-		$('#occupation').show()
-
+	
 	$('#loc_link').click ->
 		initCurrentMenuItem('#loc_link')
 		$('#location').show()
 
-	$('#loc_link').mouseenter ->
-		initCurrentMenuItem('#loc_link')
-		$('#location').show('fast')
 	$('#gend_link').click ->
 		initCurrentMenuItem('#gend_link')
 		$('#gender').show('fast')
 
-	$('#gend_link').mouseenter ->
-		initCurrentMenuItem('#gend_link')
-		$('#gender').show('fast')
-
-
-
+	
 	$('#paychk_link').click ->
 		initCurrentMenuItem('#paychk_link')
 		$('#paycheck').show()
 
-	$('#paychk_link').mouseenter ->
-		initCurrentMenuItem('#paychk_link')
-		$('#paycheck').show()
+		
 	$('#nextlink1').click ->
-		$('#loc_link').trigger('click')
+		initCurrentMenuItem('#loc_link')		
+		$('#location').show('fast')
+		
+
 	$('#nextlink2').click ->
-		$('#gend_link').trigger('click')
+		initCurrentMenuItem('#gend_link')		
+		$('#gender').show('fast')
+
 	$('#nextlink3').click ->
-		$('#paychk_link').trigger('click')
+		initCurrentMenuItem('#paychk_link')
+		$('#paycheck').show('fast')
+
 	$('#occup_link,#loc_link,#gend_link,#paychk_link').mouseleave ->
 		return false
 
@@ -71,10 +71,17 @@ $ ->
 		}
 
 	$('#showmemoney').click ->
-		$('#userform > div').hide()
-		$('#chartscontainer').show()
-		$('#chartscontainer2').show()
-		$('#chartscontainer2').show()	
+		if isFormValid()
+		  $('#userform > div').hide()
+		  $('#chartscontainer').show()
+		  $('#chartscontainer2').show()
+		  
+		else
+		  displayErrorMessage()
+		  $('#chartscontainer').hide('fast')
+		  $('#chartscontainer2').hide('fast')
+		  return false
+				
 
 
 	testBarChart =  new Highcharts.Chart {
@@ -83,7 +90,7 @@ $ ->
 	            type: 'bar'
 
 	         title: 
-	            text: 'Wage Gap'
+	            text: 'Wage Gap Estimate'
 
 	         subtitle:
 	            text: 'Source Salary.com, Bureau of Labor Statistics'
@@ -118,7 +125,7 @@ $ ->
 	            type: 'areaspline'
 
 	         title: 
-	            text: 'Wage Gap Trend'
+	            text: 'Effect of Initial Gap on Annual Wage Over 30 Years'
 
 	         subtitle:
 	            text: 'Source Salary.com, Bureau of Labor Statistics'
@@ -160,3 +167,36 @@ initCurrentMenuItem= (currentLink) ->
 	$('#occupation, #location, #gender, #paycheck').hide('fast')
 	$('#verticalnavbar > ul > li').removeClass('currentMenuItem')
 	$(currentLink).parent().addClass('currentMenuItem')
+
+isFormValid = () ->
+	valid = true
+	clearErrorMessage()
+	
+	if !$('#jobcode').val()
+		@validationmessages.push('Please enter a valid occupation')
+		valid = false
+	
+	if $('#zip_code').val() and !(/^\d{5}$/.test($('#zip_code').val()))
+		@validationmessages.push('Please enter a valid zip code. For e.g. 15222')
+		valid = false
+	return valid
+
+
+
+	 
+
+displayErrorMessage = () ->
+	for msg in @validationmessages
+        $('#errormsgpanel').append(msg + '<br/>')
+	$('#errormsgpanel').show('fast')
+
+clearErrorMessage = () ->
+	@validationmessages = []
+	$('#errormsgpanel').html('')
+	$('#errormsgpanel').hide('fast')
+
+
+
+
+
+
