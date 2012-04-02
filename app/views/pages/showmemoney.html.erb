@@ -19,8 +19,9 @@
 	<%= form_tag("/showmemoney", :method => "get", :id => "showmemoneyform") do %>
 
 	<div id="occupation">
-  		<%= label_tag(:q, "Start typing your job title") %> <br/> <small> * required</small>
-  		<%= text_field :salarycomjob, :jobtitle, :size => 50,  :class => 'searchbox'  %>
+  		<%= label_tag(:q, "Start typing your job title") %> <br/> 
+  		<%= text_field :salarycomjob, :jobtitle, :size => 50,  :class => 'searchbox'  %><br/>
+  		<small> * required</small>
   		<%= hidden_field_tag :jobcode %> <br/>	
 
 		<a id="nextlink1" href="#" class="button orange">Next</a>
@@ -30,9 +31,10 @@
 
 	<div id="location">
 		<label for="zipcode">Start typing city or zipcode</label> <br/>
-		<small>If you don't enter a zipcode, national average information will be presented </small>
+		
 
-		<%= text_field :zip, :code, :size =>50, :class => 'searchbox' %>
+		<%= text_field :zip, :code, :size =>50, :class => 'searchbox' %><br/>
+		<small>If you don't enter a zipcode, national average information will be presented </small>
 		<br/>
 		<a id="nextlink2" href="#" class="button orange">Next</a>
 	</div>

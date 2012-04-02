@@ -177,7 +177,7 @@ isFormValid = () ->
 		@validationmessages.push('Please enter a valid occupation')
 		valid = false
 	
-	if $('#zip_code').val() and !(/^\d{5}$/.test($('#zip_code').val()))
+	if $('#zip_code').val() and !(/^\d{5}$|^\d{3}$/.test($('#zip_code').val()))
 		@validationmessages.push('Please enter a valid zip code. For e.g. 15222')
 		valid = false
 	return valid
