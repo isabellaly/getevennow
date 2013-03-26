@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Equalpay::Application.configure do
-=======
-ACoolApp::Application.configure do
->>>>>>> 9cfd57742430be7df0bd049bc16007a64996f58e
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

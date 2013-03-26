@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 Equalpay::Application.routes.draw do
- 
-=======
-ACoolApp::Application.routes.draw do
->>>>>>> 9cfd57742430be7df0bd049bc16007a64996f58e
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,11 +43,7 @@ ACoolApp::Application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-<<<<<<< HEAD
-  #     resources :blsjobs
-=======
   #     resources :products
->>>>>>> 9cfd57742430be7df0bd049bc16007a64996f58e
   #   end
 
   # You can have the root of your site routed with "root"
@@ -64,26 +55,11 @@ ACoolApp::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-<<<<<<< HEAD
-  root :to => "pages#home"
-  resources :SalaryComJobs
-  resources :Zips
-  
-  match '/home' => "pages#home"
+
+  match '/home' => 'pages#home'
   match '/getthefact'  => "pages#getthefact"
-  match '/gettheplan'  => "pages#gettheplan"
+  match '/gettheplan' => "pages#gettheplan"
   match '/getpublic'  => "pages#getpublic"
-  match '/showmemoney'  => "pages#showmemoney"
-  match '/showmehowtogetahead'  => "pages#showmehowtogetahead"
-  match '/charts' => 'charts#getwagedata'
-  match '/tips' => 'pages#negotiationtips'
-  match '/videos' => 'pages#negotiationvideos'
-  match '/more' => 'pages#findoutmore'
-
-  
-  
-=======
-
-match '/say/hello' => 'say#hello'
->>>>>>> 9cfd57742430be7df0bd049bc16007a64996f58e
+  match '/showmemoney' => "pages#showmemoney"
+  match '/showmehowtogetahead' => "[ages#showmehowtogetahead]"
 end
