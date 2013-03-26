@@ -55,11 +55,11 @@ Equalpay::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
+  root :to => "pages#home"
   match '/home' => 'pages#home'
   match '/getthefact'  => "pages#getthefact"
   match '/gettheplan' => "pages#gettheplan"
   match '/getpublic'  => "pages#getpublic"
   match '/showmemoney' => "pages#showmemoney"
-  match '/showmehowtogetahead' => "[ages#showmehowtogetahead]"
+  match '/showmehowtogetahead' => "pages#showmehowtogetahead"
 end

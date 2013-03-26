@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
   
   def showmemoney
-
+  puts "show me the money"
 	if not params[:jobcode].nil?
 
 	  salarycomjob = SalaryComJob.find_by_code(params[:jobcode])
