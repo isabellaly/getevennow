@@ -1,6 +1,5 @@
 Equalpay::Application.routes.draw do
-  resources :zips
-
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -61,7 +60,12 @@ Equalpay::Application.routes.draw do
   resources :SalaryComJobs
   resources :Zips
   
+  match '/home' => "pages#home"
+  match '/getthefact'  => "pages#getthefact"
+  match '/gettheplan'  => "pages#gettheplan"
+  match '/getpublic'  => "pages#getpublic"
   match '/showmemoney'  => "pages#showmemoney"
+  match '/showmehowtogetahead'  => "pages#showmehowtogetahead"
   match '/charts' => 'charts#getwagedata'
   match '/tips' => 'pages#negotiationtips'
   match '/videos' => 'pages#negotiationvideos'
