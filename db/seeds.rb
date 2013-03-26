@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+<<<<<<< HEAD
 
 SalaryComJob.create(:title => "Media Production Manager" , :code => "AR17000025")
 SalaryComJob.create(:title => "Production Manager" , :code => "AR17000025")
@@ -212,3 +213,5 @@ SalaryComJob.create(:title => "Job Developer,CM0200082")
 SalaryComJob.create(:title => "Job Coach,CM0200083")
 SalaryComJob.create(:title => "Residential Couselor,CM0200083")
 SalaryComJob.create(:title => "Residential Living Assistant,CM0200083")
+=======
+>>>>>>> 9cfd57742430be7df0bd049bc16007a64996f58e
