@@ -5,4 +5,4 @@
 require File.expand_path('../config/application', __FILE__)
 
 
-Equalpay::Application.load_tasks
+GetEvenNow::Application.load_tasks
