@@ -61,5 +61,5 @@ GetEvenNow::Application.routes.draw do
   match '/gettheplan' => "pages#gettheplan"
   match '/getpublic'  => "pages#getpublic"
   match '/showmemoney' => "pages#showmemoney"
-  match '/showmehowtogetahead' => "pages#showmehowtogetahead"
+  match '/showmehowtogetahead' => "pages#showmehowtogetahead.html"
 end
