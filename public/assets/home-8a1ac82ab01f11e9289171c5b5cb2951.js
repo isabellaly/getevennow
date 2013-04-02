@@ -1,1 +1,0 @@
-(function(){$(function(){return $("#occupationtable").dataTable({aLengthMenu:[10,25,35]})})}).call(this);

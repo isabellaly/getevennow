@@ -1,1 +1,0 @@
-(function(){$(function(){if(!$.cookie("equalpay_dol_disclaimer_agreed"))return $("#license_agreement").dialog({modal:!0,height:400,width:700,closeOnEscape:!1,buttons:{Agree:function(){return $.cookie("equalpay_dol_disclaimer_agreed","true",{expires:7,path:"/"}),$(this).dialog("close")},Cancel:function(){return window.location.replace("http://www.google.com")}}})})}).call(this);
