@@ -1,199 +1,136 @@
-#topspacer{
-	height:25px;
-}
+@charset "utf-8";
 
-#bottomspacer{
-	height:25px;
-}
 
-#page_container{
-	background-color: white;
-	/*border: 1px solid black;*/
-	-moz-box-shadow:2px 2px 4px #999;
-	-webkit-box-shadow:2px 2px 4px #999;
-	box-shadow:2px 2px 4px #999;
-	margin:0;
-	-moz-border-radius:    10px;
-	 -webkit-border-radius: 10px;
-	 border-radius:         10px;
-	
-}
-
-#header{
-	padding-left: 20px;
-	padding-bottom: 0;
-	border: 0;
-	margin: 0;
-}
-
-/*Main navigation menu */
-#mainmenu{
-	background-color: #8B0000;
-}
-#navbar {
-  position: relative;
-  margin: 0;
-  padding: 0.4em 0;
-}
-
-#navbar li {
-  list-style-type: none;
-  display: inline;
-  padding: 0;
-}
-
-#navbar li a {
-  padding: 0.4em 0.7em;
-  font-weight: bold;
-  font: 125% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-  text-decoration: none;
-  color:white !important;
- -webkit-text:white;
-  margin: 0;
-  border: 0;
-
-}
-
-#navbar ul{
-	display:none;
-	border: 0;
-	margin: 0;
-	float: left;
-}
-
-#navbar ul li{
-	
-	border: 0;
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
 	margin: 0;
 	padding: 0;
+	color: #000;
 }
 
-#navbar ul li a{
-	padding: 0 1em 0 0;
-	font: 110% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-	border: 0;
+ul, ol, dl {
+	padding: 0;
 	margin: 0;
-	
 }
-
-#navbar  li a:hover {
-  background-color: #FA8072;
-  
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	padding-right: 40px;
+	padding-left: 15px;
+	font-family: "Perpetua Titling MT";
 }
-
-
-/*#mainmenu ul li a:visited {
-  background-color: #F20056;
-  
-}*/
-
-
-
-/*End main menu*/
-
-#content{
-	/*border-top: 1px solid black;*/
-
-}
-
-#mainsection {
-	padding: 20px 20px 20px 20px;
-	
-	
+a img { 
+	border: none;
 }
 
 
-body{
-	background-color:#eef2fb; 
-	
+a:link {
+	color: #42413C;
+	text-decoration: underline; 
 }
-
-
-.currentMenuItem{
-	background-color: #00BFFF;
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
 }
-
-
-.button {
-	display: inline-block;
-	outline: #E00782;
-	cursor: pointer;
-	text-align: center;
+a:hover, a:active, a:focus { 
 	text-decoration: none;
-	font: 1em Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; 
+}
+
+
+.header {
+	background-color: #ADB96E;
+}
+
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 1em;
+	width: 900px;
+	float: left;
+}
+.sidebar2 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding: 10px 0;
+}
+
+
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; 
+
+
+ul.nav {
+	list-style: none; 
+	border-top: 1px solid #666; 
+	margin-bottom: 15px; 
+}
+ul.nav li {
+	border-bottom: 1px solid #666; 
+}
+ul.nav a, ul.nav a:visited { 
+	padding: 5px 5px 5px 15px;
+	display: block; 
+	width: 160px;  
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+.home   {
+        padding:10px 0;
+}
+
+.footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
 	position: relative;
-	color: #FFFFFF;
-	background: -webkit-gradient(linear, left top, left bottom, from(#990000), to(#B22222));
-/*	left:100px;
-	bottom:-100px; */
-}
-.button:hover {
-	text-decoration: none;
-	color:#F8EEF4 !important;
-	background: -webkit-gradient(linear, left top, left bottom, from(#B22222), to(#990000));
-	 -webkit-text:white
-}
-
-
-#footer{
-	background-color: #F5F5F5;
-	-moz-border-radius:    0 0 10px 10px;
-	 -webkit-border-radius: 0 0 10px 10px;
-	 border-radius:         0 0 10px 10px;
-	padding:20px 20px 20px 20px;
-	margin:0;
-	
-}
-
-
-.centeralign{
+	clear: both;
 	text-align: center;
-	
-}
-
-img.centeralign{
-	display: block;
-	margin-left: auto;   
-	margin-right: auto;
-	
-	
 }
 
 
-#footer a {
- padding-right: 2em;
- font: 60%;	
+.fltrt {  
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { 
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
 }
 
-#footer p{
-font: 60%;	
+.container .footer p {
+	text-align: left;
+	font-family: "Perpetua Titling MT";
 }
 
-.ui-dialog { margin:0 auto; }
 
-#errormsgpanel{
-	display: none;
-	background-color: rgb(255, 0,0);
+#videolinks a
 	
-	color: white !important;
-	padding: 0 1.5em;
-	font-weight: bold;
-	-moz-border-radius:    3px;
-	 -webkit-border-radius: 3px;
-	 border-radius:         3px;
 }
 
-/*#tips li:nth-child(odd) {
-	
-	background-color: #BDEDFF;
-	
-}*/
 
+	
+	
+}

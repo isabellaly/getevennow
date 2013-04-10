@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Get Even Now</title>
+   <title><%= @title %></title>
   <%= csrf_meta_tags %>
   <%= render 'layouts/stylesheets' %>
- 
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/jquery.dataTables.min.js' %>
 </head>
+
 <body>
 	
-	<div  class="container">
-		<div id="topspacer"></div>
-		<div id="page_container" class="span-24 last">
-			<%= render 'layouts/header' %>
-			<div id="content">
-				<div id="mainsection" class="span-16 append-1">
-				<%= yield %>	
-				</div>
-				</div>
-			</div>		
-			<%= render 'layouts/footer'%>
-		<div id="bottomspacer"></div>
+<div  class="container">
+  
+   <div class="header">
+   
+   <a href="http://localhost:3000/getthefact"><img src="/assets/get-even-now-4-8-13_06.gif" width="200" height="86" alt="getthefacts" /></a>
+   <a href="http://localhost:3000/gettheplan"><img src="/assets/get-even-now-4-8-13_08.gif" width="199" height="86" alt="getaplan" /></a>
+   <a href="http://localhost:3000/getconnected"><img src="/assets/get-even-now-4-8-13_03.gif" width="328" height="88" alt="getconnected" /></a> 
+   <a href="http://localhost:3000/home"><img src="/assets/homebutton.gif" width="200" height="90" alt="homebutton" /></a>
+   </div>
+  
+ 
+   <div class="content"> <%= yield %> </div>
+	
+	
+<div class="footer" align="center" >
 
-   <%= render 'layouts/standarddisclaimer' %>
-
+<p>
+<img src="/assets/get-even-now-4-8-13_16.gif" width="671" height="65" alt="quotebox"/>
+<img src="/assets/get-even-now-4-8-13_18.gif" width="88" height="61" alt="aboutus"/>
+</p>
+<p>                                                                    home - contact us - site map</p>
+</div>
+		
+	
+	
+</div>
+	
+ 
 </body>
+
+
+
+
+
+	
+
+
 </html>
