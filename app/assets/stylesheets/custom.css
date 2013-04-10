@@ -77,6 +77,10 @@ ul.nav {
 	border-top: 1px solid #666; 
 	margin-bottom: 15px; 
 }
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
+	background-color: #ADB96E;
+	color: #FFF;
+}
 ul.nav li {
 	border-bottom: 1px solid #666; 
 }
@@ -87,10 +91,7 @@ ul.nav a, ul.nav a:visited {
 	text-decoration: none;
 	background-color: #C6D580;
 }
-ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
-	background-color: #ADB96E;
-	color: #FFF;
-}
+
 
 .home   {
         padding:10px 0;
@@ -126,5 +127,5 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 }
 
 
-	
+}
 
