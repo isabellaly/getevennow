@@ -13,12 +13,36 @@ ul, ol, dl {
 	padding: 0;
 	margin: 0;
 }
-h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;
-	padding-right: 40px;
-	padding-left: 15px;
-	font-family: "Arial";
+
+h1
+{
+	font-family: "Arial Black", Gadget, sans-serif;
+	color: #36c;
+	tex-decoration: underline;
+	font-weight: bold;
+	font-size:24px;
 }
+
+h2
+{
+	font-family: Arial;
+	color: #036;
+	font-size: 14px;
+}
+
+h3
+{
+	font-family: Verdana, Geneva, sans-serif;
+	color: #000;
+	font-size: 16px;
+}
+
+p{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #333;
+	font-size: 16px;
+}
+
 a img { 
 	border: none;
 }
@@ -71,7 +95,7 @@ a:hover, a:active, a:focus {
 .content ul, .content ol { 
 	padding: 0 15px 15px 40px; 
 
-
+}
 ul.nav {
 	list-style: none; 
 	border-top: 1px solid #666; 
@@ -127,5 +151,5 @@ ul.nav a, ul.nav a:visited {
 }
 
 
-}
+
 

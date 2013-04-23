@@ -32,7 +32,7 @@
         // Q3
         {
         question:   'Informal networks are undefined networks that provide important information regarding the unspoken and unwritten rules of the company. These networks often comprise of informal relationships, such as friendship outside of work, collaboration on previous projects, or something as simple as desk proximity. Are you aware and a part of informal networks at your organization?',
-        answers:    ['No – I was not aware that informal networks are important','Yes, I’m aware, but I don’t participate: ','•	Absolutely - I recognize that there are informal networks and I tap into them regularly'], 
+        answers:    ['No – I was not aware that informal networks are important','Yes, I’m aware, but I don’t participate: ','Absolutely - I recognize that there are informal networks and I tap into them regularly'], 
         responses:  ['Building relationships both inside and outside the organization is important for networking as well as overall satisfaction. Consider your interests when looking for informal networks. Many organizations have activity-based groups such as sports leagues and book clubs. Informal chat during these interactions can often lead to valuable insight as to what’s going on in other departments and the organization in general.','Simply belonging to an organization might not be enough to separate yourself and gain visibility and recognition. It is also critical to find the most influential networks in the organization. Continue to develop relationships with individuals inside and outside the organization so that you can observe and learn from them.','You understand that hard work alone is not enough to be advance in the organization. Be sure that you are not only tapping into these networks but that you are adding value for others. Invite new hires and employees who are more introverted to after-work events. This also aids in growing your own informal network.'],
         insightLink: 'http://www.catalyst.org/knowledge/unwritten-rules-why-doing-good-job-might-not-be-enough',
         insightText: 'Catalyst research shows that lack of access to informal networks is one of the primary barriers to the advancement of women. When an organization’s rules and cultural norms are communicated through informal networks, those without access to these networks miss out on development opportunities.'
@@ -51,25 +51,47 @@
       ];
         
 
-  var questionTemplateString = '\<div class="question-row" id="question<%= question_index %>"> \<h2><%= question %></h2> \<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label>\<% }) %>\</div>';
+  var questionTemplateString = '\<div class="question-row" id="question <h3 for="<%= question_index %>"><%= question %></h3><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div>';
 
-  var resultTemplateString = '\<a href="<%= insightLink %>">Insight</a>\<%= insightText %>\<p> <%= response %><\p>';
+  var resultTemplateString = '\<p><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\<\p> <br><label><%= response %></label>';
 	  
+	  //var tableString = '<table border="1"><tr><td><div class="question-row" id="question<%= question_index %>"> \<%= question %><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div></td><td><p><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\ <%= response %><\p></td></tr><tr><td>row 2, cell 1</td><td>row 2, cell 2</td></tr></table>';
+
 	    
      //
       // DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU'RE DOING
       //
 
       // compile the templates into functions
-      var questionTemplate = _.template(questionTemplateString);
-      var resultTemplate   = _.template(resultTemplateString);
+      var questionTemplate = _.template(questionTemplateString+"<br>");
+      var resultTemplate   = _.template(resultTemplateString+"<br>");
+
 
       // populate the quiz div with the questions
-      for (var i = 0; i < quiz.length; i++) {
+      //for (var i = 0; i < quiz.length; i++) {
+      	var i = 0;
         var question = quiz[i].question;
         var answers = quiz[i].answers;
-        $("#quiz").append(questionTemplate({question_index: i, question: question, answers: answers}));
-      }
+        
+        $("#quiz1").append(questionTemplate({question_index: i, question: question, answers: answers}));
+        i = 1;
+        question = quiz[i].question;
+        answers = quiz[i].answers;
+        
+        $("#quiz2").append(questionTemplate({question_index: i, question: question, answers: answers}));
+        
+        i = 2;
+        question = quiz[i].question;
+        answers = quiz[i].answers;
+        
+        $("#quiz3").append(questionTemplate({question_index: i, question: question, answers: answers}));
+        
+        i = 3;
+        question = quiz[i].question;
+        answers = quiz[i].answers;
+        
+        $("#quiz4").append(questionTemplate({question_index: i, question: question, answers: answers}));
+      //}
 
     // attach event handlers to radio buttons
 /*
@@ -83,14 +105,14 @@
       // give life to the 'results' button
       $('input').change(function() {
 
-        var i;
+        //var i;
 
         // reset the results div
         $("#results").html('');
 
         // check every answer
-        for (i = 0; i < quiz.length; i++) {
-
+        //for (i = 0; i < quiz.length; i++) {
+			var i = 0;
             // get the index of the question i selection (undefined if none)
             var answerIndex = $("input[name=question"+i+"]:checked").val();
 
@@ -99,12 +121,59 @@
                 var response    = quiz[i].responses[answerIndex];
                 var insightText = quiz[i].insightText;
                 var insightLink = quiz[i].insightLink;
-
-                $("#results").append(resultTemplate({
+$("#results1").empty();
+                $("#results1").append(resultTemplate({
                     response    : response, 
                     insightText : insightText, 
                     insightLink : insightLink 
                 }));
-            }
+        }
+        	i = 1;
+            // get the index of the question i selection (undefined if none)
+            answerIndex = $("input[name=question"+i+"]:checked").val();
+
+            // only add the response to the results if something is selected
+            if (typeof answerIndex !== "undefined") {
+                response    = quiz[i].responses[answerIndex];
+                insightText = quiz[i].insightText;
+                insightLink = quiz[i].insightLink;
+$("#results2").empty();
+                $("#results2").append(resultTemplate({
+                    response    : response, 
+                    insightText : insightText, 
+                    insightLink : insightLink 
+                }));
+        }
+        i = 2;
+            // get the index of the question i selection (undefined if none)
+            answerIndex = $("input[name=question"+i+"]:checked").val();
+
+            // only add the response to the results if something is selected
+            if (typeof answerIndex !== "undefined") {
+                response    = quiz[i].responses[answerIndex];
+                insightText = quiz[i].insightText;
+                insightLink = quiz[i].insightLink;
+				$("#results3").empty();
+                $("#results3").append(resultTemplate({
+                    response    : response, 
+                    insightText : insightText, 
+                    insightLink : insightLink 
+                }));
+        }
+       i = 3;
+            // get the index of the question i selection (undefined if none)
+            answerIndex = $("input[name=question"+i+"]:checked").val();
+
+            // only add the response to the results if something is selected
+            if (typeof answerIndex !== "undefined") {
+                response    = quiz[i].responses[answerIndex];
+                insightText = quiz[i].insightText;
+                insightLink = quiz[i].insightLink;
+$("#results4").empty();
+                $("#results4").append(resultTemplate({
+                    response    : response, 
+                    insightText : insightText, 
+                    insightLink : insightLink 
+                }));
         }
       });
