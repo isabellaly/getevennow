@@ -41,6 +41,18 @@ p{
 	font-size: 20px;
 }
 
+ul{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #333;
+	font-size: 20px;
+}
+
+li{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #333;
+	font-size: 20px;
+}
+
 
 label{
 	font-family: Arial;
