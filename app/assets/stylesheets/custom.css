@@ -29,9 +29,10 @@ h2
 
 h3
 {
-	font-family: Verdana, Geneva, sans-serif;
-	color: #000;
+	font-family: Arial;
+	color: #663366;
 	font-size: 24px;
+	line-height: 150%;
 }
 
 p{
@@ -42,7 +43,7 @@ p{
 
 
 label{
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: Arial;
 	color: #333;
 	font-size: 20px;
 }

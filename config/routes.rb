@@ -58,6 +58,7 @@ GetEvenNow::Application.routes.draw do
 
   root :to => "pages#home"
   match '/home' => 'pages#home'
+  match '/home2' => 'pages#home2'
   match '/getthefact'  => "pages#getthefact"
   match '/gettheplan' => "pages#gettheplan"
   match '/getconnected'  => "pages#getconnected"

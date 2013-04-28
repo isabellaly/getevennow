@@ -51,7 +51,7 @@
       ];
         
 
-  var questionTemplateString = '\<div class="question-row" id="question <h3 for="<%= question_index %>"><%= question %></h3><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div>';
+  var questionTemplateString = '\<div class="question-row" id="question <h3 for="<%= question_index %>"><%= question %></h3><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<h3 for="<%= answer_index %>"><%= answer %></h3><br>\<% }) %>\</div>';
 
   var resultTemplateString = '\<p><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\<\p> <br><label><%= response %></label>';
 	  

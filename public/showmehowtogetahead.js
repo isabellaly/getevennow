@@ -51,9 +51,9 @@
       ];
         
 
-  var questionTemplateString = '\<div class="question-row" id="question <h3 for="<%= question_index %>"><%= question %></h3><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div>';
+  var questionTemplateString = '\<h3><b><div class="question-row" id="question <h3 for="<%= question_index %>"><%= question %></b></h3>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div>';
 
-  var resultTemplateString = '\<p><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\<\p><label><%= response %></label>';
+  var resultTemplateString = '\<p><i><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\</i><\p><label><%= response %></label>';
 	  
 	  
 	  //var tableString = '<table border="1"><tr><td><div class="question-row" id="question<%= question_index %>"> \<%= question %><br><br>\<%  \_.each(answers, function(answer, answer_index) { \%> \<input type="radio" name="question<%= question_index %>" value="<%= answer_index %>">\<label for="<%= answer_index %>"><%= answer %></label><br>\<% }) %>\</div></td><td><p><a href="<%= insightLink %>">Insight</a><br>\<%= insightText %><br>\ <%= response %><\p></td></tr><tr><td>row 2, cell 1</td><td>row 2, cell 2</td></tr></table>';
@@ -64,7 +64,7 @@
       //
 
       // compile the templates into functions
-      var questionTemplate = _.template(questionTemplateString+"<br>");
+      var questionTemplate = _.template(questionTemplateString);
       var resultTemplate   = _.template(resultTemplateString+"<br>");
 
 
